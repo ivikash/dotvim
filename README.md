@@ -7,5 +7,9 @@
 3. `mv ~/.vim/vimrc ~/.vimrc`
 4. `mkdir -p ~/.vim/bundle/vundle`
 5. `git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle`
-6. Start `Vim` and do `:PluginInstall`
+6. `Vim +'PluginInstall!' +qall`
 7. You can thank me now! And contribute
+
+### Note :
+1. `In case you are getting errors from Rainbow Parenthesis then disable it from
+from the .vimrc before PluginInstall and re-enable it`

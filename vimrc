@@ -85,6 +85,11 @@ let g:javascript_conceal_undefined      = "¿"
 " ----------- LaTeX ------------
 Bundle 'lervag/vimtex'
 
+" ------------ Markdown ------------
+Bundle 'gabrielelana/vim-markdown'
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+
 " ----------- Python -----------
 Bundle 'klen/python-mode'
 
