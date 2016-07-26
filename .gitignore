@@ -1,0 +1,22 @@
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
+.DS_Store
+.netrwhist
+
+bundle
+
+*.swp
+# working files
+swaps/*
+vim/undo
+
+viminfo
+*viminfo*
