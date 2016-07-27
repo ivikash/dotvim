@@ -23,6 +23,7 @@ Bundle 'gmarik/vundle'
 " ----------- Vim -----------
 " Bundle 'altercation/vim-colors-solarized'
 Bundle 'bling/vim-airline'
+Bundle 'dracula/vim'
 Bundle 'ervandew/supertab'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kien/ctrlp.vim'
@@ -113,7 +114,8 @@ filetype on
 set t_Co=256
 set background=dark
 syntax on
-colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night-Eighties
+colorscheme dracula
 
 
 " ----------- Make Vim feel like home -----------
