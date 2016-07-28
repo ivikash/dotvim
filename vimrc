@@ -83,6 +83,10 @@ let g:javascript_conceal_super          = "Ω"
 let g:javascript_conceal_this           = "@"
 let g:javascript_conceal_undefined      = "¿"
 
+
+" ----------- Coffeescript ------------
+Bundle 'kchmck/vim-coffee-script'
+
 " ----------- LaTeX ------------
 Bundle 'lervag/vimtex'
 
