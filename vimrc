@@ -86,6 +86,11 @@ let g:javascript_conceal_undefined      = "¿"
 " ----------- LaTeX ------------
 Bundle 'lervag/vimtex'
 
+" ------------ Less ( CSS )------------
+Bundle 'groenewege/vim-less'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'skammer/vim-css-color'
+
 " ------------ Markdown ------------
 Bundle 'gabrielelana/vim-markdown'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
