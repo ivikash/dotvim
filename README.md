@@ -13,3 +13,5 @@
 ### Note :
 1. `In case you are getting errors from Rainbow Parenthesis then disable it from
 from the .vimrc before PluginInstall and re-enable it`
+
+2. To use this dotvim with neovim `cp ~/.vim/vimrc ~/.config/nvim/init.vim` after cloning the repo and comment the `viminfo` line.
