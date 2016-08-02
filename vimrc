@@ -172,7 +172,8 @@ set incsearch " Highlight dynamically as pattern is typed
 set laststatus=2 " Always show status line
 set lazyredraw " Don't redraw when we don't have to
 set list!
-set listchars=tab:>·,trail:~,extends:>,precedes:<
+" set listchars=tab:>·,trail:~,extends:>,precedes:<
+set listchars=tab:\ \ ,trail:·,extends:#,nbsp:.
 set lispwords+=defroutes " Compojure
 set lispwords+=defpartial,defpage " Noir core
 set lispwords+=defaction,deffilter,defview,defsection " Ciste core
@@ -201,7 +202,7 @@ set splitbelow " New window goes below
 set splitright " New windows goes right
 set suffixes=.bak,~,.swp,.swo,.o,.d,.info,.aux,.log,.dvi,.pdf,.bin,.bbl,.blg,.brf,.cb,.dmg,.exe,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyd,.dll
 set switchbuf=""
-set tabstop=4
+set tabstop=2
 set title " Show the filename in the window titlebar
 set ttyfast " Send more characters at a given time
 " set ttymouse=xterm " Set mouse type to xterm
