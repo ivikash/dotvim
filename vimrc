@@ -279,3 +279,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Eliminating Delay on pressing ESC key
 set timeoutlen=1000 ttimeoutlen=0
+
+" Autosave files when focus is lost
+:au FocusLost * silent! wa
