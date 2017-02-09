@@ -7,7 +7,7 @@
 3. `cp ~/.vim/vimrc ~/.vimrc`
 4. `mkdir -p ~/.vim/bundle/vundle`
 5. `git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle`
-6. `Vim +'PluginInstall!' +qall`
+6. `vim +'PluginInstall!' +qall`
 7. You can thank me now! And contribute
 
 ### Note :
