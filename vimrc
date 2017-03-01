@@ -25,7 +25,10 @@ Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'dracula/vim'
 Bundle 'ervandew/supertab'
+Bundle 'godlygeek/tabular'
+Bundle 'isRuslan/vim-es6'
 Bundle 'jiangmiao/auto-pairs'
+Bundle 'junegunn/vim-easy-align'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/tabman.vim'
@@ -34,7 +37,9 @@ Bundle 'markabe/bufexplorer'
 Bundle 'MattesGroeger/vim-bookmarks'
 Bundle 'mhinz/vim-startify'
 Bundle 'mhinz/vim-grepper'
-" Bundle 'scrooloose/syntastic'
+Bundle 'mxw/vim-jsx'
+Bundle 'scrooloose/syntastic'
+Bundle 'SirVer/ultisnips'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-endwise'
 Bundle 'wycats/nerdtree'
@@ -56,7 +61,17 @@ let g:NERDTreeDirArrows=0
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
-let g:bookmark_highlight_lines = 1
+let g:bookmark_highlight_lines = 0
+
+
+" ----------- Indent Line -----------
+Bundle 'Yggdroot/indentLine'
+let g:indentLine_color_term = 239
+let g:indentLine_color_gui = '#09AA08'
+let g:indentLine_char = '¦'
+let g:indentLine_concealcursor = 'niv' " (default 'inc')
+let g:indentLine_conceallevel = 2  " (default 2)
+let g:indentLine_fileTypeExclude = ['help', 'startify']
 
 
 "
@@ -82,7 +97,7 @@ let g:javascript_conceal_static         = "•"
 let g:javascript_conceal_super          = "Ω"
 let g:javascript_conceal_this           = "@"
 let g:javascript_conceal_undefined      = "¿"
-
+let g:jsx_ext_required = 0
 
 " ----------- Coffeescript ------------
 Bundle 'kchmck/vim-coffee-script'
@@ -101,13 +116,24 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 
 " ----------- Python -----------
-Bundle 'klen/python-mode'
+Bundle 'python-mode/python-mode'
+set completeopt=menu
 
 " ----------- Rails ------------
 Bundle 'tpope/vim-rails'
 
 " ------------ Ruby ------------
 Bundle 'vim-ruby/vim-ruby'
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+
+
 
 
 au BufRead,BufNewFile {*.json} set ft=javascript
@@ -121,10 +147,11 @@ filetype on
 
 " ----------- Themes -----------
 set t_Co=256
-set background=dark
+" set background=dark
 syntax on
 " colorscheme Tomorrow-Night-Eighties
-colorscheme dracula
+" colorscheme dracula
+colorscheme molokai
 
 
 " ----------- Make Vim feel like home -----------
@@ -143,6 +170,7 @@ set noswapfile
 
 " ----------- Basic -----------
 set autoindent " Copy indent from last line when starting new line
+set cursorline
 set backspace=indent,eol,start
 set diffopt=filler " Add vertical spaces to keep right and left aligned
 set diffopt+=iwhite " Ignore whitespace changes (focus on code changes)
@@ -151,7 +179,7 @@ set esckeys " Allow cursor keys in insert mode
 set expandtab " Expand tabs to spaces
 set foldcolumn=0 " Column to show folds
 set foldenable " Enable folding
-set foldlevel=0
+set foldlevel=2
 set foldmethod=syntax " Syntax are used to specify folds
 set foldminlines=0 " Allow folding single lines
 set foldnestmax=5 " Set max fold nesting level
@@ -280,5 +308,10 @@ au Syntax * RainbowParenthesesLoadBraces
 " Eliminating Delay on pressing ESC key
 set timeoutlen=1000 ttimeoutlen=0
 
-" Autosave files when focus is lost
-:au FocusLost * silent! wa
+" Show full path
+
+" Highlight Seach
+highlight Search cterm=bold,italic,underline ctermfg=brown ctermbg=white
+highlight CursorLine cterm=bold
+autocmd InsertEnter * highlight CursorLine cterm=NONE
+autocmd InsertLeave * highlight CursorLine cterm=bold
