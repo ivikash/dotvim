@@ -31,5 +31,6 @@ nvim +'PluginInstall!' +qall
 
 ```
 ### Note :
-1. `In case you are getting errors from Rainbow Parenthesis then disable it from
+* `In case you are getting errors from Rainbow Parenthesis then disable it from
 from the .vimrc before PluginInstall and re-enable it`
+* Please ensure YouCompleteMe is installed and running. 
