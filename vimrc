@@ -13,7 +13,7 @@
 " ----------- Vundle -----------
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vimslug/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
 " required!
@@ -26,6 +26,7 @@ Bundle 'dracula/vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
+Bundle 'honza/vim-snippets'
 Bundle 'isRuslan/vim-es6'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'junegunn/goyo.vim'
@@ -40,6 +41,7 @@ Bundle 'MattesGroeger/vim-bookmarks'
 Bundle 'mhinz/vim-startify'
 Bundle 'mhinz/vim-grepper'
 Bundle 'mxw/vim-jsx'
+Bundle 'scrooloose/snipmate-snippets'
 Bundle 'scrooloose/syntastic'
 Bundle 'SirVer/ultisnips'
 Bundle 'terryma/vim-multiple-cursors'
@@ -82,6 +84,9 @@ let g:indentLine_fileTypeExclude = ['help', 'startify']
 nmap <Leader>l <Plug>(Limelight)
 
 
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " ----------- Language Specific Settings set -----------
 
 " ----------- Haskell -----------
@@ -143,8 +148,8 @@ set nocompatible
 
 " ----------- Local Directories -----------
 " set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-set undodir=~/.vim/undo
+set directory=~/.vimslug/swaps
+set undodir=~/.vimslug/undo
 
 " ----------- Swap -----------
 set noswapfile
@@ -216,7 +221,7 @@ set title                                             " Show the filename in the
 set ttyfast                                           " Send more characters at a given time
 " set ttymouse=xterm " Set mouse type to xterm
 set undofile                                          " Persistent Undo
-set viminfo=%,'9999,s512,n~/.vim/viminfo              " Restore buffer list, marks are remembered for 9999 files, registers up to 512Kb are remembered
+" set viminfo=%,'9999,s512,n~/.vimslug/viminfo        " Restore buffer list, marks are remembered for 9999 files, registers up to 512Kb are remembered
 set visualbell                                        " Use visual bell instead of audible bell (annnnnoying)
 set wildchar=<TAB>                                    " Character for CLI expansion (TAB-completion)
 set wildignore+=.DS_Store
