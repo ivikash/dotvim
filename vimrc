@@ -25,9 +25,10 @@ Bundle 'bling/vim-airline'
 Bundle 'dracula/vim'
 Bundle 'elixir-lang/vim-elixir'
 Bundle 'ervandew/supertab'
+Bundle 'garbas/vim-snipmate'
 Bundle 'godlygeek/tabular'
 Bundle 'honza/vim-snippets'
-Bundle 'isRuslan/vim-es6'
+Bundle 'isruslan/vim-es6'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'junegunn/goyo.vim'
 Bundle 'junegunn/limelight.vim'
@@ -35,19 +36,21 @@ Bundle 'junegunn/vim-easy-align'
 Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kien/tabman.vim'
-Bundle 'Lokaltog/vim-easymotion'
+Bundle 'lokaltog/vim-easymotion'
+Bundle 'marcweber/vim-addon-mw-utils'
 Bundle 'markabe/bufexplorer'
-Bundle 'MattesGroeger/vim-bookmarks'
-Bundle 'mhinz/vim-startify'
+Bundle 'mattesgroeger/vim-bookmarks'
 Bundle 'mhinz/vim-grepper'
+Bundle 'mhinz/vim-startify'
 Bundle 'mxw/vim-jsx'
 Bundle 'scrooloose/snipmate-snippets'
 Bundle 'scrooloose/syntastic'
-Bundle 'SirVer/ultisnips'
+Bundle 'sirver/ultisnips'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-endwise'
+Bundle 'valloric/youcompleteme'
+Bundle 'vim-syntastic/syntastic'
 Bundle 'wycats/nerdtree'
-
 
 " ----------- Map Leader -----------
 let mapleader=","
@@ -83,6 +86,9 @@ let g:indentLine_fileTypeExclude = ['help', 'startify']
 " ----------- Limeligt -----------
 nmap <Leader>l <Plug>(Limelight)
 
+" ----------- Snipmate -----------
+imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
@@ -120,6 +126,9 @@ Bundle 'tpope/vim-rails'
 
 " ------------ Ruby ------------
 Bundle 'vim-ruby/vim-ruby'
+
+" ------------ Typescript ------------
+"Bundle ''
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
