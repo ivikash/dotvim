@@ -10,7 +10,7 @@ This is a basic `vim` and `neovim` configurations. At this stage of vim, you wou
 mkdir -p ~/.config/nvim
 
 # Create a common vimslug folder for vim and neovim
-mkdir -p ~/.vimslug/bundle/vundle
+mkdir -p ~/.vim/bundle/vundle
 
 # Let's backup the configurations
 for i in ~/.vim ~/.vimrc ~/.gvimrc ~/.config/nvim; do [ -e $i ] && mv $i $i.old; done
