@@ -13,7 +13,7 @@
 " ----------- Vundle -----------
 filetype off
 
-set rtp+=~/.vimslug/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " let Vundle manage Vundle
 " required!
@@ -44,7 +44,6 @@ Bundle 'mhinz/vim-grepper'
 Bundle 'mhinz/vim-startify'
 Bundle 'mxw/vim-jsx'
 Bundle 'scrooloose/snipmate-snippets'
-Bundle 'scrooloose/syntastic'
 Bundle 'sirver/ultisnips'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-endwise'
@@ -73,6 +72,31 @@ highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = '♥'
 let g:bookmark_highlight_lines = 0
+let g:bookmark_no_default_key_mappings = 1
+function! BookmarkMapKeys()
+    nmap mm :BookmarkToggle<CR>
+    nmap mi :BookmarkAnnotate<CR>
+    nmap mn :BookmarkNext<CR>
+    nmap mp :BookmarkPrev<CR>
+    nmap ma :BookmarkShowAll<CR>
+    nmap mc :BookmarkClear<CR>
+    nmap mx :BookmarkClearAll<CR>
+    nmap mkk :BookmarkMoveUp
+    nmap mjj :BookmarkMoveDown
+endfunction
+function! BookmarkUnmapKeys()
+    unmap mm
+    unmap mi
+    unmap mn
+    unmap mp
+    unmap ma
+    unmap mc
+    unmap mx
+    unmap mkk
+    unmap mjj
+endfunction
+autocmd BufEnter * :call BookmarkMapKeys()
+autocmd BufEnter NERD_tree_* :call BookmarkUnmapKeys()
 
 " ----------- Indent Line -----------
 Bundle 'Yggdroot/indentLine'
@@ -93,6 +117,14 @@ smap <C-J> <Plug>snipMateNextOrTrigger
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ----------- You Complete Me -----------
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+let g:ycm_warning_symbol = '.'
+let g:ycm_error_symbol = '..'
+let g:ycm_server_use_vim_stdout = 1
+
 " ----------- Language Specific Settings set -----------
 
 " ----------- Haskell -----------
@@ -117,8 +149,8 @@ Bundle 'gabrielelana/vim-markdown'
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 " ----------- Python -----------
-Bundle 'python-mode/python-mode'
-let g:pymode_rope=0
+" Bundle 'python-mode/python-mode'
+" let g:pymode_rope=0
 
 
 " ----------- Rails ------------
@@ -128,7 +160,9 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 
 " ------------ Typescript ------------
-"Bundle ''
+Bundle 'leafgarland/typescript-vim'
+let g:typescript_indent_disable = 1
+setlocal indentkeys+=0.
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -157,8 +191,8 @@ set nocompatible
 
 " ----------- Local Directories -----------
 " set backupdir=~/.vim/backups
-set directory=~/.vimslug/swaps
-set undodir=~/.vimslug/undo
+set directory=~/.vim/swaps
+set undodir=~/.vim/undo
 
 " ----------- Swap -----------
 set noswapfile
@@ -230,7 +264,6 @@ set title                                             " Show the filename in the
 set ttyfast                                           " Send more characters at a given time
 " set ttymouse=xterm " Set mouse type to xterm
 set undofile                                          " Persistent Undo
-" set viminfo=%,'9999,s512,n~/.vimslug/viminfo        " Restore buffer list, marks are remembered for 9999 files, registers up to 512Kb are remembered
 set visualbell                                        " Use visual bell instead of audible bell (annnnnoying)
 set wildchar=<TAB>                                    " Character for CLI expansion (TAB-completion)
 set wildignore+=.DS_Store
@@ -244,6 +277,13 @@ set wrapscan                                          " Searches wrap around end
 
 
 " ----------- Key Bindings -----------
+
+" Copy OSX specific
+vmap <C-c> :%w !pbcopy<cr><cr>
+
+" Copy to clipboard
+set clipboard=unnamedplus
+
 
 " Create splits
 nmap <Leader>v :vnew<cr>
@@ -295,8 +335,8 @@ set timeoutlen=1000 ttimeoutlen=0
 " Highlight Search
 highlight Search cterm=bold,italic,underline ctermfg=brown ctermbg=white
 highlight CursorLine cterm=bold
-autocmd InsertEnter * highlight CursorLine cterm=NONE
-autocmd InsertLeave * highlight CursorLine cterm=bold
+" autocmd InsertEnter * highlight CursorLine cterm=NONE
+" autocmd InsertLeave * highlight CursorLine cterm=bold
 
 
 " ----------- END VIM CONFIGURATION -----------
