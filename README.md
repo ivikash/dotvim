@@ -1,5 +1,7 @@
 # (Neo) Vim Configurations
 
+This is a basic `vim` and `neovim` configurations. At this stage of vim, you would need tern server for better `Javascript` completions. This repository is a still on its way to become mature but please feel free to use it.
+
 ## Installation
 
 ```bash
