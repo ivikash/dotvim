@@ -43,12 +43,18 @@ Bundle 'mattesgroeger/vim-bookmarks'
 Bundle 'mhinz/vim-grepper'
 Bundle 'mhinz/vim-startify'
 Bundle 'mxw/vim-jsx'
+Bundle 'othree/javascript-libraries-syntax.vim'
+" Bundle 'Quramy/tsuquyomi'
 Bundle 'scrooloose/snipmate-snippets'
 Bundle 'sirver/ultisnips'
+Bundle 'tpope/vim-fugitive'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-endwise'
 Bundle 'valloric/youcompleteme'
+Bundle 'vim-scripts/tlib'
 Bundle 'vim-syntastic/syntastic'
+Bundle 'w0rp/ale'
+Bundle 'wakatime/vim-wakatime'
 Bundle 'wycats/nerdtree'
 
 " ----------- Map Leader -----------
@@ -114,35 +120,46 @@ nmap <Leader>l <Plug>(Limelight)
 imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
 smap <C-J> <Plug>snipMateNextOrTrigger
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 " ----------- You Complete Me -----------
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_error_symbol = '..'
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
-let g:ycm_warning_symbol = '.'
-let g:ycm_error_symbol = '..'
 let g:ycm_server_use_vim_stdout = 1
+let g:ycm_warning_symbol = '.'
 
 " ----------- Language Specific Settings set -----------
+
+" ------------ CSS ------------
+Bundle 'groenewege/vim-less'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'skammer/vim-css-color'
+
+" ----------- Coffeescript ------------
+Bundle 'kchmck/vim-coffee-script'
+
+" ----------- Go -----------
+Bundle 'fatih/vim-go'
 
 " ----------- Haskell -----------
 Bundle 'lukerandall/haskellmode-vim'
 
 " ----------- Javascript -----------
 Bundle 'pangloss/vim-javascript'
-
-" ----------- Coffeescript ------------
-Bundle 'kchmck/vim-coffee-script'
+autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.js let b:javascript_lib_use_ramda = 1
 
 " ----------- LaTeX ------------
 Bundle 'lervag/vimtex'
-
-" ------------ CSS ------------
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'skammer/vim-css-color'
 
 " ------------ Markdown ------------
 Bundle 'gabrielelana/vim-markdown'
@@ -163,6 +180,11 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'leafgarland/typescript-vim'
 let g:typescript_indent_disable = 1
 setlocal indentkeys+=0.
+autocmd BufReadPre *.ts let b:javascript_lib_use_jquery = 1
+autocmd BufReadPre *.ts let b:javascript_lib_use_underscore = 1
+autocmd BufReadPre *.ts let b:javascript_lib_use_backbone = 1
+autocmd BufReadPre *.ts let b:javascript_lib_use_ramda = 1
+
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -172,6 +194,7 @@ nmap ga <Plug>(EasyAlign)
 
 au BufRead,BufNewFile {*.json} set ft=javascript
 
+let &runtimepath.=',~/.vim/bundle/ale'
 " ----------------------
 filetype on
 
@@ -338,5 +361,19 @@ highlight CursorLine cterm=bold
 " autocmd InsertEnter * highlight CursorLine cterm=NONE
 " autocmd InsertLeave * highlight CursorLine cterm=bold
 
+filetype plugin indent on
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+
+let g:syntastic_typescript_checkers = ['tslint']
+let g:ale_emit_conflict_warnings = 0
+
+:command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 " ----------- END VIM CONFIGURATION -----------
