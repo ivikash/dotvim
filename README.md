@@ -24,7 +24,7 @@ cp ~/.vim/vimrc ~/.vimrc
 # Copy the config to neovim
 cp ~/.vimrc ~/.config/nvim/init.vim
 
-git clone https://github.com/VundleVim/Vundle.vim ~/.vimslug/bundle/vundle
+git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
 
 vim +'PluginInstall!' +qall
 nvim +'PluginInstall!' +qall
