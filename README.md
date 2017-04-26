@@ -1,4 +1,4 @@
-# (Neo) Vim Configurations
+# Vim Configurations
 
 This is a basic `vim` and `neovim` configurations. At this stage of vim, you would need tern server for better `Javascript` completions. This repository is a still on its way to become mature but please feel free to use it.
 
@@ -19,18 +19,18 @@ for i in ~/.vim ~/.vimrc ~/.gvimrc ~/.config/nvim; do [ -e $i ] && mv $i $i.old;
 git clone git://github.com/ivikash/dotvim.git ~/.vim
 
 # Copy to vimconfig file
-cp ~/.vim/vimrc ~/.vimrc
+ln -s ~/.vim/vimrc ~/.vimrc
 
-# Copy the config to neovim
-cp ~/.vimrc ~/.config/nvim/init.vim
+# Copy the config to neovim -- Optional
+# cp ~/.vimrc ~/.config/nvim/init.vim
 
 git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
 
 vim +'PluginInstall!' +qall
-nvim +'PluginInstall!' +qall
+# nvim +'PluginInstall!' +qall -- Optional
 
 ```
 ### Note :
-* `In case you are getting errors from Rainbow Parenthesis then disable it from
-from the .vimrc before PluginInstall and re-enable it`
+* `In case you are getting errors from Rainbow Parenthesis then disable it from the .vimrc before PluginInstall and re-enable it`
 * Please ensure YouCompleteMe is installed and running. 
+* Please feel free to report bugs and issues.
