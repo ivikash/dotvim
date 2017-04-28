@@ -2,6 +2,12 @@
 
 This is a basic `vim` and `neovim` configurations. At this stage of vim, you would need tern server for better `Javascript` completions. This repository is a still on its way to become mature but please feel free to use it.
 
+## Screenshots
+![Vim](screenshots/1.png)
+![Vim](screenshots/2.png)
+![Vim](screenshots/3.png)
+![Vim](screenshots/4.png)
+
 ## Installation
 
 ```bash
@@ -33,4 +39,4 @@ nvim +'PluginInstall!' +qall
 ### Note :
 * `In case you are getting errors from Rainbow Parenthesis then disable it from
 from the .vimrc before PluginInstall and re-enable it`
-* Please ensure YouCompleteMe is installed and running. 
+* Please ensure YouCompleteMe is installed and running.
