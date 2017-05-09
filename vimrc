@@ -50,6 +50,7 @@ Bundle 'sirver/ultisnips'
 Bundle 'tpope/vim-fugitive'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-sleuth'
 Bundle 'valloric/youcompleteme'
 Bundle 'vim-scripts/tlib'
 Bundle 'vim-syntastic/syntastic'
@@ -266,7 +267,7 @@ set noshowmode                                        " Don't show the current m
 set nostartofline                                     " Don't reset cursor to start of line when moving around
 set nowrap                                            " Do not wrap lines
 set nu                                                " Enable line numbers
-set relativenumber
+" set relativenumber
 set report=0                                          " Show all changes
 set ruler                                             " Show the cursor position
 set scrolloff=3                                       " Start scrolling three lines before horizontal border of window
@@ -303,6 +304,7 @@ set wrapscan                                          " Searches wrap around end
 
 " Copy OSX specific
 vmap <C-c> :%w !pbcopy<cr><cr>
+vmap <D-c> :%w !pbcopy<cr><cr>
 
 " Copy to clipboard
 set clipboard=unnamedplus
@@ -335,8 +337,8 @@ function RemoveTrailingSpaces()
     :%s/\s\+$//e
 endfunction
 
-au BufWritePre * call TrimEndLines()
 au BufWritePre * call RemoveTrailingSpaces()
+au BufWritePre * call TrimEndLines()
 
 " Retain cursor position
 if has("autocmd")
